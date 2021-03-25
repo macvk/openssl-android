@@ -26,12 +26,13 @@ fi
 
 export ANDROID_NDK_ROOT=$SCRIPTPATH/$n
 p=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin
+pp=$PATH
 
 cd openssl-$f
 
 for r in x86 x86_64 arm64 arm; do
 
-	PATH=$p:$PATH
+	PATH=$p:$pp
 	make clean
 
 	if [ $r == "x86" ] ; then
